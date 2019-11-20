@@ -1,6 +1,6 @@
 # FFMPEG-Menu
 
-***FFMPEG Menu V1.2***
+***FFMPEG Menu V1.1***
 
 ***-*** Unpack the ***```ffmpeg.exe```*** from ***```ffmpeg.zip```*** at the ***```main```*** folder and at the ***```input```*** folder.
 
