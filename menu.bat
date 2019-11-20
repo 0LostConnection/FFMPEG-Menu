@@ -4,23 +4,29 @@ set f%fmpeg%=ffmpeg.exe
 :main
 title Menu
 cls
-mode 34,10
-cecho {0e}              FFMPEG
-echo                           Select One
+mode 30,13
+cecho {0e}
+echo             FFMPEG
+echo           Select One
 cecho {0f}
 echo.
 echo.
+echo.
 
-cmdMenuSel f870 "          -= Mp4-Mp3 =-" "          -= Mp4-Avi =-" "          -= Mp4-Gif =-" "          -= Command =-" "          -=  Close  =-"
+cmdMenuSel f870 "         -= Mp4-Mp3 =-" "         -= Mp4-Avi =-" "         -= Mp4-Gif =-" "         -= Mp3-Mp4 =-" "         -= Command =-" "         -=  Close  =-" " "
 if %ERRORLEVEL% == 1 goto Mp4-Mp3
 
 if %ERRORLEVEL% == 2 goto Mp4-Avi
 
 if %ERRORLEVEL% == 3 goto Mp4-Gif
 
-if %ERRORLEVEL% == 4 goto code
+if %ERRORLEVEL% == 4 goto Mp3-Mp4
 
-if %ERRORLEVEL% == 5 exit
+if %ERRORLEVEL% == 5 goto code
+
+if %ERRORLEVEL% == 6 exit
+
+if %ERRORLEVEL% == 7 goto main
 
 goto main
  
@@ -72,7 +78,27 @@ move %output%.gif ..\output
 cd..
 goto main
 
+:Mp3-Mp4
+title Mp3-Mp4
+cd input
+cls
+cecho {0e}
+set /p input=Mp3-Input-File: 
+echo.
+set /p img=Img-Input-File: 
+echo.
+set /p output=Mp4-Output-File: 
+cd input
+color 0f
+mode 95,25
+ffmpeg -i %img% -i %input%.mp3 -acodec copy %output%.mp4
+move %output%.mp4 ..\output
+cd..
+goto main
+
 :code
 title Command
 start cmd
 goto main
+
+::ffmpeg -i %img% -i %input%.mp3 -acodec copy %output%.mp4
