@@ -105,6 +105,11 @@ set /p input=Mp3-Input-File:
 ::Return Action
 if %input% == return goto gomain
 echo.
+cecho {0c}
+echo State The File Extension:
+echo .png or .jpg
+echo.
+cecho {0e}
 set /p img=Img-Input-File: 
 ::Return Action
 if %img% == return goto gomain
