@@ -10,7 +10,7 @@
 
 ***FMPEG Menu V1.2 Change Notes***
 
-***-*** Type ```return``` on conversion menu for go to main menu.
+***-*** Type ```return``` on the conversion menu to go to the main menu.
 
 ***-*** Unnecessary commands removed.
 
